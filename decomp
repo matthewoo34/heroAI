@@ -52,6 +52,7 @@ class App extends React.Component {
   }
 }
 ```
+Ans:
 For this.handleClick1(), it will run during each render, but no response on click, as the bracket function will run directly.
 For this.handleClick1, it will have no response on click, as it is not linked with the binding.
 For this.handleClick2, it will response on each click, as it is binded with the name handleClick2 to the handleClick 1 function in the constructor.
