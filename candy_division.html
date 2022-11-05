@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <input type="text" placeholder='candy number' id="input1" />
+    <button onclick="divide_candy()" type="submit">calculate</button>
+    <p id="result"></p>
+    <script>
+        function divide_candy() {
+            var candyNum = document.getElementById('input1').value;
+            var result = [];
+            for (var i = 0; i < candyNum; i++) {
+                if (candyNum % (i + 1) == 0) {
+                    result.push(i);
+                }
+            }
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+
+
+</body>
+
+</html>

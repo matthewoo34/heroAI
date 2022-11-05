@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <input type="text" placeholder='car number' id="input1" />
+    <input type="text" placeholder='car queue, e.g. 1,2,3' id="input2" />
+    <button onclick="train_sort()"></button>
+    <p id="result"></p>
+    <script>
+
+        function train_sort() {
+
+            var carNum = document.getElementById('input1').value;
+            var carQueue = document.getElementById('input2').value;
+            var carArray = carQueue.split(',');
+            for (car in carArray) {
+                carArray[car] = parseInt(carArray[car], 10); //change it back to int
+            }
+
+            var front, tail = null;
+            var output = [];
+            if (carArray.length <= 1) {
+                return document.getElementById("result").innerHTML = 'Number of car in the train: ' + carArray.length;
+            } else {
+                output.push(carArray[0]);
+                front = carArray[0];
+                tail = carArray[0];
+                for (var i = 1; i < carArray.length; i++) {
+                    if (carArray[i] > front) {
+                        output.unshift(carArray[i]);
+                        front = carArray[i];
+                    } else if (carArray[i] < tail) {
+                        output.push(carArray[i]);
+                        tail = carArray[i];
+                    } else {
+                        console.log(output.length);
+                        document.getElementById("result").innerHTML = 'Number of car in the train: ' + output.length;
+                    }
+                }
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
